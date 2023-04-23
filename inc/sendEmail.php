@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php'; // Make sure to update the path to the SendGrid PHP library
+require 'vendor/autoload.php'; // Make sure to update the path to the PHPMailer library
 
 // Replace this with your own email address
 $siteOwnersEmail = 'juhinsohamdas@gmail.com';
@@ -36,27 +36,37 @@ if($_POST) {
    // Set From: header
    $from =  $name . " <" . $email . ">";
 
+   // Create a new PHPMailer instance
+   $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+   // SMTP settings (replace with your own)
+   $mail->isSMTP();
+   $mail->Host = 'juhinsohamdas@ieee.org';
+   $mail->Port = 587;
+   $mail->SMTPSecure = 'tls';
+   $mail->SMTPAuth = true;
+   $mail->Username = 'Soham Das';
+   $mail->Password = 'Shraddh@143';
+
    // Email Headers
-   $headers = "From: " . $from . "\r\n";
-   $headers .= "Reply-To: ". $email . "\r\n";
-   $headers .= "MIME-Version: 1.0\r\n";
-   $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+   $mail->setFrom($email, $name);
+   $mail->addAddress($siteOwnersEmail, 'Site Owner');
+   $mail->isHTML(true);
+   $mail->Subject = $subject;
+   $mail->Body = $message;
 
    if (!$error) {
-      $email = new \SendGrid\Mail\Mail();
-      $email->setFrom($siteOwnersEmail, $name);
-      $email->setSubject($subject);
-      $email->addTo($siteOwnersEmail, "Site Owner");
-      $email->addContent("text/html", $message);
-
-      $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-
-      try {
-         $response = $sendgrid->send($email);
+      if($mail->send()) {
          echo "OK";
-      } catch (Exception $e) {
+      }
+      else {
          echo "Something went wrong. Please try again.";
       }
    }
    else {
-      $response = (isset($error['name'])) ? $error
+      $response = (isset($error['name'])) ? $error['name'] . "<br />" : "";
+      $response .= (isset($error['email'])) ? $error['email'] . "<br />" : "";
+      $response .= (isset($error['message'])) ? $error['message'] . "<br />" : "";
+      echo $response;
+   }
+}
