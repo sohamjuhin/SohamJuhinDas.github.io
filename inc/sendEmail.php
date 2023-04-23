@@ -16,7 +16,7 @@ if($_POST) {
       $error['name'] = "Please enter your name.";
    }
    // Check Email
-   if (!preg_match('/^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*+[a-z]{2}/is', $email)) {
+   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $error['email'] = "Please enter a valid email address.";
    }
    // Check Message
@@ -27,6 +27,7 @@ if($_POST) {
    if ($subject == '') { $subject = "Contact Form Submission"; }
 
    // Set Message
+   $message = "";
    $message .= "Email from: " . $name . "<br />";
    $message .= "Email address: " . $email . "<br />";
    $message .= "Message: <br />";
@@ -41,12 +42,12 @@ if($_POST) {
 
    // SMTP settings (replace with your own)
    $mail->isSMTP();
-   $mail->Host = 'juhinsohamdas@ieee.org';
+   $mail->Host = 'smtp.gmail.com';
    $mail->Port = 587;
    $mail->SMTPSecure = 'tls';
    $mail->SMTPAuth = true;
-   $mail->Username = 'Soham Das';
-   $mail->Password = 'Shraddh@143';
+   $mail->Username = 'your_email_address';
+   $mail->Password = 'your_email_password';
 
    // Email Headers
    $mail->setFrom($email, $name);
@@ -64,9 +65,4 @@ if($_POST) {
       }
    }
    else {
-      $response = (isset($error['name'])) ? $error['name'] . "<br />" : "";
-      $response .= (isset($error['email'])) ? $error['email'] . "<br />" : "";
-      $response .= (isset($error['message'])) ? $error['message'] . "<br />" : "";
-      echo $response;
-   }
-}
+      $response = (isset($error['name'])) ? $error['name'] . "<br />"
