@@ -3,7 +3,7 @@
 require 'vendor/autoload.php'; // Make sure to update the path to the PHPMailer library
 
 // Replace this with your own email address
-$siteOwnersEmail = 'juhinsohamdas@gmail.com';
+$siteOwnersEmail = 'juhinsohamdas@ieee.org';
 
 if($_POST) {
    $name = trim(stripslashes($_POST['contactName']));
