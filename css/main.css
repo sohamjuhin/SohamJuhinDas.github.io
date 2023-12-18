@@ -19,11 +19,13 @@
  *  11. about
  *  12. resume
  *  13. portfolio
- *  14. call-to-action section
- *  15. services
- *  16. stats
- *  17. contact
- *  18. footer
+ *  14. gallery
+ *  15. Research Interests
+ *  16. call-to-action section
+ *  17. services
+ *  18. stats
+ *  19. contact
+ *  20. footer
  *
  * =================================================================== 
  */
@@ -2020,9 +2022,61 @@ header .logo a {
 	transform: translateY(-100%);
 }
 
+
 /** 
  * ===================================================================
- * 14. call-to-action section - (_layout.scss)
+ *14. gallery
+* ------------------------------------------------------------------- 
+ */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+.gallery img {
+  width: 250px; /* Adjust width as needed */
+  height: auto;
+  margin: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/** 
+ * ===================================================================
+ * 16. call-to-action section - (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
