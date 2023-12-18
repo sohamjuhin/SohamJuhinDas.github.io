@@ -2030,72 +2030,8 @@ header .logo a {
  */
 /* Basic styles for the gallery */
 
-/* Basic styles for the gallery */
-.grey-section {
-  background-color: #f2f2f2;
-  padding: 40px 0;
-}
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-.section-intro {
-  text-align: center;
-  color: #fff;
-  position: relative;
-  z-index: 1;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.gallery-item {
-  margin: 5px;
-  overflow: hidden;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.caption img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease-in-out;
-}
-
-.caption:hover img {
-  transform: scale(1.05);
-}
-
-.caption span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 8px;
-  text-align: center;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0;
-}
-
-.caption:hover span {
-  opacity: 1;
-}
-
-
+ 
 
 
 
