@@ -2092,7 +2092,13 @@ header .logo a {
   }
 }
 
- 
+ /* Set a specific size for the images in the slideshow */
+.gallery-item img {
+  width: 100%; /* Adjust this value to fit your desired width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure images don't exceed their container */
+}
+
 
 
 
