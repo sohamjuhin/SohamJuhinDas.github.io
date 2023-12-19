@@ -206,6 +206,60 @@
   	});  
   
 
+
+/*---------------------------------------------------- */
+  	/*gallery
+  	------------------------------------------------------ */
+
+// JavaScript for the slideshow functionality
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("fade");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  slides[slideIndex - 1].classList.add("active");
+  setTimeout(showSlides, 2000); // Change image every 2 seconds (2000ms)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    /*---------------------------------------------------- */
 	/*  Placeholder Plugin Settings
 	------------------------------------------------------ */ 
